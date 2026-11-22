@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: buginsight-benildo-api
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - buginsight_data:/var/lib/postgresql/data
+
+volumes:
+  buginsight_data:
